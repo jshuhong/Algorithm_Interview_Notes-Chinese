@@ -94,10 +94,8 @@ Index
 - **状态转移**
     ```
     dp[i][j] = dp[i-1][j]            if j < w[i] （当前剩余容量不够放下第 i 个物品）
-             = max{                  else （取以下两种情况的最大值）
-                    dp[i-1][j],             // 不拿第 i 个物品
-                    dp[i-1][j-w[i]] + v[j]  // 拿第 i 个物品
-                  }
+             = max{dp[i-1][j], dp[i-1][j-w[i]] + v[i]  }   //不拿No.i or 拿No.i                
+                                        
     ```
 ```C++
 // HDOJ 地址：http://acm.hdu.edu.cn/showproblem.php?pid=2602
