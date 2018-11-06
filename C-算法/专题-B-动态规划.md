@@ -433,7 +433,7 @@ int main() {
     ```
     dp[j] = min{ dp[j-coins[i]] + 1 | i=0,..,n-1 }
         
-    其中 coins[i] 表示硬币的币值，共 n 种硬币
+    其中 coins[i] 表示硬币的币值，共 n 种硬币（和代码中的参数n区分）
     ```
 
 **C++**
@@ -441,13 +441,13 @@ int main() {
 class Solution {
 public:
     int coinChange(vector<int>& coins, int n) {
-        int INF = n + 1;
+        int INF = n + 1;     //硬币数量上界，必定小于总金额数（面值全为1）。
         
         vector<int> dp(n+1, INF);
         dp[0] = 0;
         
-        for (auto c: coins) {
-            for (int i=c; i<=n; i++) {            //  i >= c
+        for (auto c: coins) {                      //for所有的面值
+            for (int i=c; i<=n; i++) {            //  i >= c  //for所有的金额i
                 dp[i] = min(dp[i], dp[i-c] + 1);
             }
         }
