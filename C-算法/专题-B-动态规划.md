@@ -1129,7 +1129,7 @@ public:
 
               // 以上可以简写成下面两行代码
               //max_cur = max(max_cur + a[i], a[i]);
-              //ret = max(ret, max_cur);
+              //ret = max(ret, max_cur);        //dp[i]表示以i为结尾的最大连续子串和，结果为max(dp[i]), i \in [0,n-1]
           }
           cout << ret << endl;
       }
